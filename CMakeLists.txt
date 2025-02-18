@@ -35,7 +35,7 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(tarefa_u4c8 tarefa_u4c8.c )
+add_executable(tarefa_u4c8 tarefa_u4c8.c lib/ssd1306.c)
 
 pico_set_program_name(tarefa_u4c8 "tarefa_u4c8")
 pico_set_program_version(tarefa_u4c8 "0.1")
@@ -48,7 +48,8 @@ pico_enable_stdio_usb(tarefa_u4c8 1)
 target_link_libraries(tarefa_u4c8
         pico_stdlib
         hardware_adc
-        hardware_pwm)
+        hardware_pwm
+        hardware_i2c)
 
 # Add the standard include files to the build
 target_include_directories(tarefa_u4c8 PRIVATE
